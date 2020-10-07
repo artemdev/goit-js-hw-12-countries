@@ -76,7 +76,7 @@ const fetchCountries = (userInput) => {
 
 
     if(data.status == 404) {
-      return PNotifyError()
+      PNotifyError()
     }
 
 })
