@@ -35,7 +35,7 @@ const renderHtmlFrom = (data) => {
             <img class="country__flag" src="${country.flag}" alt="${country.name}" />
           </div>
           <div class="col-sm-6">
-            <div class="country__name">${country.name}</div>
+            <h2 class="country__name">${country.name}</h2>
             <div class="country__capital">Capital: ${country.capital}</div>
             <div class="country__population">Population: ${country.population}</div>
             <div class="country__languages">Languages: ${showLanguagesFrom(country.languages)} </div>
