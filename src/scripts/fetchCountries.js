@@ -3,6 +3,11 @@ import { alert, success, error } from '@pnotify/core';
 import "@pnotify/core/dist/PNotify.css";
 import "@pnotify/core/dist/BrightTheme.css";
 
+// variables
+const htmlArea = document.querySelector("#countries")
+const input = document.querySelector("#search")
+
+//notifications
 const PNotifyWarning = (number) => alert({
         text: `Найдено ${number} стран, укажите более конкретное название`
   });
@@ -16,10 +21,7 @@ const PNotifySuccess = (number) => success({
   text: `Найдено стран: ${number} `
 });
   
-
-const htmlArea = document.querySelector("#countries")
-const input = document.querySelector("#search")
-
+//functions
 const showLanguagesFrom = (array) => {
   const languages = array.map(language => language.name)
   return languages
@@ -55,15 +57,11 @@ const fetchCountries = (userInput) => {
   const searchQuery = `https://restcountries.eu/rest/v2/name/${searchText}`
   fetch(searchQuery)
   .then(response => {
-    // console.log(response.status)
     return response.json()
-    //response handling
   })
   .then(data => {
     const length = data.length
-    //clean current html
     cleanHtml()
-
 
     if(length > 10) {
         return PNotifyWarning(length);
@@ -85,4 +83,5 @@ const fetchCountries = (userInput) => {
   });
 
 }
+
 input.addEventListener("input", debounce(fetchCountries, 5000))
