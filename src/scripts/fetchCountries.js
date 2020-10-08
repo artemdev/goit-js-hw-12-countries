@@ -27,6 +27,9 @@ const showLanguagesFrom = (array) => {
   return languages
 }
 
+const moreInfoAbout = (countryName) => {
+  return `https://en.wikipedia.org/wiki/${countryName}`
+}
 const renderHtmlFrom = (data) => {
   let html = ""
   data.forEach(country => {
@@ -38,9 +41,10 @@ const renderHtmlFrom = (data) => {
           </div>
           <div class="col-sm-6">
             <h2 class="country__name">${country.name}</h2>
-            <div class="country__capital">Capital: ${country.capital}</div>
-            <div class="country__population">Population: ${country.population}</div>
-            <div class="country__languages">Languages: ${showLanguagesFrom(country.languages)} </div>
+            <div class="country__capital">Столица: ${country.capital}</div>
+            <div class="country__population">Население: ${country.population}</div>
+            <div class="country__languages">Языки: ${showLanguagesFrom(country.languages)} </div>
+            <div class="country__more"><a href="${moreInfoAbout(country.name)}" target="_blank">Узнать больше о стране</a></div>
           </div>
       </div>
     </div>`
