@@ -9,16 +9,16 @@ const input = document.querySelector("#search")
 
 //notifications
 const PNotifyWarning = (number) => alert({
-        text: `Найдено ${number} стран, укажите более конкретное название`
+        text: ` ${number} countries found. Please, specify exact name`
   });
 
 
 const PNotifyError = () => error({
-  text: "Ничего не найдено"
+  text: "Country not found. Please try another name"
 });
 
 const PNotifySuccess = (number) => success({
-  text: `Найдено стран: ${number} `
+  text: `Countries found: ${number} `
 });
   
 //functions
@@ -41,10 +41,10 @@ const renderHtmlFrom = (data) => {
           </div>
           <div class="col-sm-6">
             <h2 class="country__name">${country.name}</h2>
-            <div class="country__capital">Столица: ${country.capital}</div>
-            <div class="country__population">Население: ${country.population}</div>
-            <div class="country__languages">Языки: ${showLanguagesFrom(country.languages)} </div>
-            <div class="country__more"><a href="${moreInfoAbout(country.name)}" target="_blank">Узнать больше о стране</a></div>
+            <div class="country__capital">Capital: ${country.capital}</div>
+            <div class="country__population">Population: ${country.population}</div>
+            <div class="country__languages">Languages: ${showLanguagesFrom(country.languages)} </div>
+            <div class="country__more"><a href="${moreInfoAbout(country.name)}" target="_blank">More info</a></div>
           </div>
       </div>
     </div>`
