@@ -3,8 +3,8 @@ import { alert, notice, info, success, error, defaultModules } from'@pnotify/cor
 import "@pnotify/core/dist/PNotify.css";
 import "@pnotify/core/dist/BrightTheme.css";
 
-const PNotifyNotice = () => alert({
-        text: "Слишком много стран, укажите более конкретное название"
+const PNotifyWarning = (number) => alert({
+        text: `Найдено ${number} стран, укажите более конкретное название`
   });
 
 
@@ -66,7 +66,7 @@ const fetchCountries = (userInput) => {
 
 
     if(length > 10) {
-        return PNotifyNotice();
+        return PNotifyWarning(length);
     }
 
     if (length > 0) {
