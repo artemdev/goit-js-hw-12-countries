@@ -1,5 +1,5 @@
-const debounce = require('lodash.debounce');
-import { alert, notice, info, success, error, defaultModules } from'@pnotify/core';
+import * as debounce from 'lodash.debounce'
+import { alert, success, error } from '@pnotify/core';
 import "@pnotify/core/dist/PNotify.css";
 import "@pnotify/core/dist/BrightTheme.css";
 
