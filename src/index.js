@@ -3,7 +3,7 @@ import './styles.scss';
 import * as debounce from 'lodash.debounce'
 import  fetchCountries  from './scripts/fetchCountries'
 import { input, displayResults } from './scripts/rendering'
-import invalidString from './scripts/validate_input'
+import invalidString from './scripts/validate'
 
 
 const searchCountry = (data) => {
