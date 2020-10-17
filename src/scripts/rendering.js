@@ -13,7 +13,7 @@ const showLanguagesFrom = (array) => {
 const moreInfoAbout = (countryName) => {
     return `https://en.wikipedia.org/wiki/${countryName}`
   }
-const renderHtmlFrom = (data) => {
+const displaySingleCountry = (data) => {
     let html = ""
     data.forEach(country => {
     html +=
@@ -35,6 +35,20 @@ const renderHtmlFrom = (data) => {
     htmlArea.innerHTML = html
     return data
   }
+  const displayMultipleCountries = (data) => {
+    const countriesList  = document.createElement('ul')
+    countriesList.className = "countries__list";
+    data.forEach(country => {
+      const p = document.createElement('li')
+      p.className = 'countries__item'
+      
+      const a = `<a href="${moreInfoAbout(country)}">${country.name}</a>`
+      p.innerHTML = a
+      countriesList.appendChild(p)
+    })
+    htmlArea.appendChild(countriesList)
+    return data
+  }
 
 export const displayResults = (data) => {
 
@@ -51,8 +65,12 @@ export const displayResults = (data) => {
       PNotifyError()
     }
 
-    if (length > 0) {
-      return renderHtmlFrom(data)
+    if (length > 2 && length < 10) {
+      return displayMultipleCountries(data)
+    }
+
+    if (length == 1) {
+      return displaySingleCountry(data)
     }
 
 
