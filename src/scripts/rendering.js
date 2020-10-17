@@ -1,4 +1,9 @@
-import { htmlArea } from './fetchCountries.js'
+import { PNotifyAlert, PNotifyError } from './notifications.js'
+
+
+export const htmlArea = document.querySelector("#countries")
+export const input = document.querySelector("#search")
+
 
 const showLanguagesFrom = (array) => {
     const languages = array.map(language => language.name)
@@ -8,7 +13,7 @@ const showLanguagesFrom = (array) => {
 const moreInfoAbout = (countryName) => {
     return `https://en.wikipedia.org/wiki/${countryName}`
   }
-export default function renderHtmlFrom (data) {
+const renderHtmlFrom = (data) => {
     let html = ""
     data.forEach(country => {
     html +=
@@ -30,3 +35,25 @@ export default function renderHtmlFrom (data) {
     htmlArea.innerHTML = html
     return data
   }
+
+export const displayResults = (data) => {
+
+    const length = data.length
+    //clean html
+    htmlArea.innerHTML = ""
+
+    //send notificationstatus
+    if(length > 10) {
+        return PNotifyAlert(length);
+    }
+
+    if(data.status == 404) {
+      PNotifyError()
+    }
+
+    if (length > 0) {
+      return renderHtmlFrom(data)
+    }
+
+
+}

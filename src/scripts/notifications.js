@@ -1,6 +1,8 @@
 import { alert, error } from '@pnotify/core';
+import '@pnotify/core/dist/PNotify.css';
+import '@pnotify/core/dist/BrightTheme.css';
 
-//notifications
+
 export const PNotifyAlert = (number) => alert({
     text: ` ${number} countries found. Please, specify exact name`
 });
