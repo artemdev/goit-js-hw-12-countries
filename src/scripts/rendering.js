@@ -10,7 +10,7 @@ const showLanguagesFrom = (array) => {
     return languages
   }
   
-const moreInfoAbout = (countryName) => {
+const wikipediaLinkFrom = (countryName) => {
     return `https://en.wikipedia.org/wiki/${countryName}`
   }
 const displaySingleCountry = (data) => {
@@ -41,8 +41,8 @@ const displaySingleCountry = (data) => {
     data.forEach(country => {
       const p = document.createElement('li')
       p.className = 'countries__item'
-      
-      const a = `<a href="${moreInfoAbout(country)}">${country.name}</a>`
+
+      const a = `<a href="${wikipediaLinkFrom(country.name)}">${country.name}</a>`
       p.innerHTML = a
       countriesList.appendChild(p)
     })
