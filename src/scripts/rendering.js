@@ -27,7 +27,7 @@ const displaySingleCountry = (data) => {
               <div class="country__capital">Capital: ${country.capital}</div>
               <div class="country__population">Population: ${country.population}</div>
               <div class="country__languages">Languages: ${showLanguagesFrom(country.languages)} </div>
-              <div class="country__more"><a href="${moreInfoAbout(country.name)}" target="_blank">More info</a></div>
+              <div class="country__more"><a href="${wikipediaLinkFrom(country.name)}" target="_blank">More info</a></div>
             </div>
         </div>
       </div>`
