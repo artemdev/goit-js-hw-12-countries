@@ -42,7 +42,7 @@ const displaySingleCountry = (data) => {
       const p = document.createElement('li')
       p.className = 'countries__item'
 
-      const a = `<a href="${wikipediaLinkFrom(country.name)}">${country.name}</a>`
+      const a = `<a href="${wikipediaLinkFrom(country.name)}" target="_blank">${country.name}</a>`
       p.innerHTML = a
       countriesList.appendChild(p)
     })
